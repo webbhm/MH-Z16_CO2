@@ -57,6 +57,16 @@ s.test()
 ```
 You shuold see several lines of CO2 readings.
 Work your way up the stack by then running from the command line:
-  - python getCO2Chart.py
-  - bash render.sh
+For ver 1.0
+```
+python /home/pi/Documents/OpenAg-MVP/python/getCO2Chart.py
+python /home/pi/Documents/OpenAg-MVP/python/logSensors.py
+bash /home/pi/MVP_UI/scripts/render.sh
+```
+For later versions:
+```
+python /home/pi/MVP/python/getCO2Chart.py
+python /home/pi/MVP/python/logSensors.py
+bash /home/pi/MVP/scripts/render.sh
+```  
   - double click on index.html to display it in a browser view the chart
