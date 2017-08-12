@@ -1,16 +1,37 @@
 # MH-Z16_CO2
-Python code for the Sandbox Electronics CO2 sensor
-This code is for integrating the MH-Z16 sensor and I2C interface board (IC SC16I5705) with the OpenAg MVP.
+Python code for the [Sandbox Electronics CO2 sensor](http://sandboxelectronics.com/?product=mh-z16-ndir-co2-sensor-with-i2cuart-5v3-3v-interface-for-arduinoraspeberry-pi)
+This code is for integrating the MH-Z16 sensor and I2C interface board (IC SC16I5705) with the OpenAg MVP.  The original code came from [here](https://github.com/SandboxElectronics/NDIR/tree/master/NDIR_RasPi_Python)
 
-Instructions:
+##Instructions:
+### Sensor Installation
+
+The CO2 sensor, with the interface card, works off of the I2C bus (same as the temp/humidity sensor).  To use it, simply wire it in with the other I2C sensors, matching the power, gnd, SCA and SCL wires.
+The default address is 0x4D, though it can be changed through some soldering.  The code defaults to this value, but it can be changed by supplying an address parameter to the constructor:
+```
+sensor=Sensor(0x4d)
+```
+### Software Installation
 This code requires time and smbus, which should already be in the python library.
-Copy the python files to your python directory.
+Copy the following python files to your python directory.
   - NDIR.py
   - getCO2Chart.py
+    
+Two example files are included in the repository.  These are the 'base' MVP code plus the code changes for this sensor.  If this is the only addes sensor, you can rename these files and replace the existing MVP files with them.  The example files are:  
+
+  - logSensors_example.py
+  - index-example.py
+  - render-example.sh
+  
 For ver 1.0 the python directory is `/home/pi/Documents/OpenAg-MVP/python`
 For later versions, the directory is `/home/pi/MVP/python`
-Modify logSensors.py by adding the following code:
-> import NDIR
+
+Open logSensors.py in a text editor and make the following changes:
+
+At the top of the file add:
+```
+import NDIR
+```
+At the bottom of the file add:
 ```
 try:
     sensor=NDIR.Sensor(0x4D)
