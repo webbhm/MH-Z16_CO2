@@ -19,7 +19,7 @@ Copy the following python files to your python directory.
 Two example files are included in the repository.  These are the 'base' MVP code plus the code changes for this sensor.  If this is the only addes sensor, you can rename these files and replace the existing MVP files with them.  The example files are:  
 
   - logSensors_example.py
-  - index-example.py
+  - index-example.html
   - render-example.sh
   
 For ver 1.0 the python directory is `/home/pi/Documents/OpenAg-MVP/python`
